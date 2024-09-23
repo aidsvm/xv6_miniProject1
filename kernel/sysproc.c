@@ -6,6 +6,8 @@
 #include "proc.h"
 #include "sysfunc.h"
 
+extern int partBcount;
+
 int partAcount = 0;
 
 int
@@ -107,5 +109,5 @@ int sys_firstpart(void)
 
 int sys_secondpart(void)
 {
-  
+  return partBcount;
 }

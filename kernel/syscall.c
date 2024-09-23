@@ -7,6 +7,8 @@
 #include "syscall.h"
 #include "sysfunc.h"
 
+int partBcount = 0;
+
 // User code makes a system call with INT T_SYSCALL.
 // System call number in %eax.
 // Arguments on the stack, from the user call to the C
@@ -113,6 +115,7 @@ static int (*syscalls[])(void) = {
 void
 syscall(void)
 {
+  partBcount++;
   int num;
   
   num = proc->tf->eax;
@@ -125,5 +128,4 @@ syscall(void)
   }
 }
 
-extern int partBcount = 0;
 extern int sys_secondpart(void);
