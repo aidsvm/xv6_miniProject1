@@ -104,3 +104,8 @@ int sys_firstpart(void)
 {
 	return partAcount;
 }
+
+int sys_secondpart(void)
+{
+  
+}

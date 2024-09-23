@@ -105,6 +105,7 @@ static int (*syscalls[])(void) = {
 [SYS_uptime]  sys_uptime,
 [SYS_printpid] sys_printpid,
 [SYS_firstpart] sys_firstpart,
+[SYS_secondpart] sys_secondpart
 };
 
 // Called on a syscall trap. Checks that the syscall number (passed via eax)
@@ -124,5 +125,5 @@ syscall(void)
   }
 }
 
-
-extern int sys_firstpart(void);
+extern int partBcount = 0;
+extern int sys_secondpart(void);
