@@ -7,6 +7,7 @@
 #include "sysfunc.h"
 
 extern int partBcount;
+extern int partCcount;
 
 int partAcount = 0;
 
@@ -102,12 +103,20 @@ sys_printpid(void)
 	return 0;
 }
 
-int sys_firstpart(void) 
+int
+sys_firstpart(void) 
 {
 	return partAcount;
 }
 
-int sys_secondpart(void)
+int 
+sys_secondpart(void)
 {
-  return partBcount;
+  	return partBcount;
+}
+
+int
+sys_thirdpart(void) 
+{
+	return partCcount;
 }

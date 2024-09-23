@@ -8,6 +8,7 @@
 #include "sysfunc.h"
 
 int partBcount = 0;
+int partCcount = 0;
 
 // User code makes a system call with INT T_SYSCALL.
 // System call number in %eax.
@@ -107,7 +108,8 @@ static int (*syscalls[])(void) = {
 [SYS_uptime]  sys_uptime,
 [SYS_printpid] sys_printpid,
 [SYS_firstpart] sys_firstpart,
-[SYS_secondpart] sys_secondpart
+[SYS_secondpart] sys_secondpart,
+[SYS_thirdpart] sys_thirdpart,
 };
 
 // Called on a syscall trap. Checks that the syscall number (passed via eax)
@@ -121,6 +123,11 @@ syscall(void)
   num = proc->tf->eax;
   if(num > 0 && num < NELEM(syscalls) && syscalls[num] != NULL) {
     proc->tf->eax = syscalls[num]();
+
+    if(proc->tf->eax != -1) {
+	partCcount++;
+    }
+
   } else {
     cprintf("%d %s: unknown sys call %d\n",
             proc->pid, proc->name, num);
@@ -129,3 +136,4 @@ syscall(void)
 }
 
 extern int sys_secondpart(void);
+extern int sys_thirdpart(void);

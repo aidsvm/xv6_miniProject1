@@ -21,7 +21,8 @@ USER_PROGS := \
 	test\
 	partatest\
 	partatest2\
-	partbtest
+	partbtest\
+	partctest
 
 USER_PROGS := $(addprefix user/, $(USER_PROGS))
 
