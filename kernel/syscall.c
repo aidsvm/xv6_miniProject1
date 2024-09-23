@@ -123,3 +123,6 @@ syscall(void)
     proc->tf->eax = -1;
   }
 }
+
+
+extern int sys_firstpart(void);

@@ -1,9 +1,8 @@
 #include "types.h"
 #include "stat.h"
 #include "user.h"
-int
-main(void)
+int main(void)
 {
-printf(1, "There are %d getpid() system calls.\n", firstpart());
-exit();
+    printf(1, "There are %d getpid() system calls.\n", firstpart());
+    exit();
 }
