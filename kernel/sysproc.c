@@ -38,6 +38,7 @@ sys_kill(void)
 int
 sys_getpid(void)
 {
+	sys_firstpart();	
   return proc->pid;
 }
 
@@ -95,4 +96,12 @@ sys_printpid(void)
 	cprintf("Process ID: %d\n", proc->pid);
 
 	return 0;
+}
+
+int sys_firstpart(void) 
+{
+	int partAcount = 0;
+	partAcount++;	
+
+	return partAcount;
 }
